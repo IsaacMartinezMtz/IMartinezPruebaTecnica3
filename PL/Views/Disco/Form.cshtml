@@ -1,0 +1,82 @@
+﻿@model ML.Disco
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-lg-start">
+    <h2>Usuario</h2>
+    <h5>Ingrese los datos del usuario</h5>
+</div>
+<hr />
+@using (Html.BeginForm("Form", "Disco", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(Model => Model.IdDisco)
+
+    <div class="container text-center">
+        <div class="row justify-content-evenly">
+
+            <div class="col-4">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => Model.Titulo, new { @class = "hidden" })
+                        @Html.TextBoxFor(model => Model.Titulo, new { @class = "form-control hidden" })
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => Model.Año, new { @class = "hidden" })
+                        @Html.TextBoxFor(model => Model.Año, new { @class = "form-control hidden" })
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => Model.GeneroMusical, new { @class = "hidden" })
+                        @Html.TextBoxFor(model => Model.GeneroMusical, new { @class = "form-control hidden" })
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => Model.Ventas, new { @class = "hidden" })
+                        @Html.TextBoxFor(model => Model.Ventas, new { @class = "form-control hidden" })
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-4">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => Model.Artista, new { @class = "hidden" })
+                        @Html.TextBoxFor(model => Model.Artista, new { @class = "form-control hidden" })
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => Model.Duracion, new { @class = "hidden" })
+                        @Html.TextBoxFor(model => Model.Duracion, new { @class = "form-control hidden" })
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => Model.Distribuidora, new { @class = "hidden" })
+                        @Html.TextBoxFor(model => Model.Distribuidora, new { @class = "form-control hidden" })
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        @Html.LabelFor(model => Model.Disponibilidad, new { @class = "hidden" })
+                        @Html.TextBoxFor(model => Model.Disponibilidad, new { @class = "form-control hidden" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-success" type="submit"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+        <a id="btnCancelar" class="btn btn-danger" href="@Url.Action("GetAll", "Disco")"><i class="fa-solid fa-right-from-bracket"></i> Volver</a>
+    </div>
+}
+
+
